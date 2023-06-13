@@ -1,0 +1,75 @@
+1. Hybrid Framework  
+=====================================================================================================================
+In our selenium project's we are using the java language.We are using TDD (test driven developments) 
+approach by using quick-start templates of maven and all our dependencies are defined in POM.xml.
+
+2. Page Object Model 
+=====================================================================================================================
+So as per page object model, we have maintained a class for every page. each web page has seprate class file and that 
+class hold functionality and elements of that web page.
+
+3. Property file 
+=====================================================================================================================
+This file stores the common information which can be accessed throughout the framework such as on which browsers you 
+want to run application URL User credentials keeping these details in config file makes it easy to maintain and use.
+
+4. Base class 
+=====================================================================================================================
+base class(base.java)deals with all the common functions used by all the pages. This class is responsible for loading
+configuration from properties file, initialising the webdriver and implicit waits.
+
+5. Utility class 
+=====================================================================================================================
+utility class(util,java)store and handle the functions which are repetitive in nature such as waits, capturing
+screenshots, accessing data from excel, which can be commonly used in the entire framework.
+
+6. ScreenShots
+=====================================================================================================================
+We have used Listeners in our framework to capture screenshots on any failure; these will be stored in
+seperate folder and will be added to the output report.
+
+7. Test Data DataDriven Testing and DataProvider
+=====================================================================================================================
+using apache poi we are accessing all our test data through excel sheets.
+
+-->Add/Create ExcelLibrary in utility package.
+-->Create a Folder and add TestData.xlxs in that.
+-->Create a package for DataProvider and add DataProvider class there and create the object of ExcelLibrary Class
+-->Add the DataProvider methods 
+-->Call the DataProvider methods from testcases
+
+8. TestNG
+======================================================================================================================
+This is used to achieve assertions, grouping and parallel executions so that I can run my smoke, sanity, regression,
+test cases as per need.
+
+9. Version Control
+======================================================================================================================
+We use Git to manage our code.
+Git is an open source version control system that allows the user to keep track of all the changes that have been
+made to the source of the software.
+
+
+10. jenkins
+======================================================================================================================
+to achieve continuous testing, triggering my test cases.
+
+
+11.Extent Report
+======================================================================================================================
+
+-->Add/Create index.xml file for Extent Report Configuration
+-->Create a folder ro Save Extent Report under Reports folder
+-->Configure ExtentManager.setExtent() in @BeforeSuite method in BaseClass
+-->Configure ExtentManager.endReport() in @AfterSuite method in BaseClass
+-->Add/Create screenShot method in Action/BaseClass
+To attach the screenshot in extent report
+-->Add/Create a Listener Class -- ListenerClass
+-->To call the listener Add the below listener (inside suite tag) setting in testng.xml
+
+<listeners>
+<listener class-name="com.Project.util.SuiteListener"></listener>
+</listeners> 
+========================================================================================================================
+
+                                          THANKS                                                        RAHUl
